@@ -15,6 +15,17 @@ var app = express();
 
 app.use(bodyParser.json());
 
+app.get('/todos',(req , res) => {
+  Todo.find().then((docs) => {
+    res.send({
+      todos:docs
+    })
+  } , (err) => {
+    res.status(400).send(err);
+  });
+
+});
+
 app.post('/todos',(req , res) => {
 
   var todo = new Todo({
