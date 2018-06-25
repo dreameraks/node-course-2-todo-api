@@ -9,6 +9,7 @@ var {mongoose} = require('./db/mongoose.js');
 var  {Todo} = require('./models/todo.js');
 var {User} = require('./models/user.js');
 
+const port = process.env.PORT || 3000 ;
 
 
 var app = express();
@@ -62,6 +63,6 @@ app.post('/todos',(req , res) => {
   });
 });
 
-app.listen(3000 , () => {
-  console.log('Started on port 3000');
+app.listen(port  , () => {
+  console.log('Started on port');
 });
